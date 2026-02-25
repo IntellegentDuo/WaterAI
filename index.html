@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FRAME ШЕБЕРЛЕРІ — 8 бет постер</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a2f;
+      --text:#eaf1ff;
+      --muted:#9fb0d0;
+      --accent:#00d4ff;
+      --accent2:#6d5cff;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 18px 60px rgba(0,0,0,.35);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(0,212,255,.15), transparent 60%),
+                  radial-gradient(900px 700px at 90% 20%, rgba(109,92,255,.16), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom:1px solid var(--line);
+      padding:14px 18px;
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      font-weight:800; letter-spacing:.4px;
+    }
+    .pill{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(16,26,47,.55);
+    }
+    .btn{
+      cursor:pointer;
+      border:1px solid rgba(0,212,255,.35);
+      background: linear-gradient(135deg, rgba(0,212,255,.18), rgba(109,92,255,.18));
+      color:var(--text);
+      padding:10px 14px; border-radius:12px;
+      font-weight:600;
+      transition:.18s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color:rgba(0,212,255,.6) }
+    .wrap{
+      max-width:1100px;
+      margin:20px auto 50px;
+      padding:0 18px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap:18px;
+    }
+    .page{
+      background: linear-gradient(180deg, rgba(16,26,47,.92), rgba(16,26,47,.72));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:26px 26px 22px;
+      position:relative;
+      overflow:hidden;
+      min-height: 520px;
+    }
+    .page:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 220px at 20% 0%, rgba(0,212,255,.16), transparent 60%),
+                  radial-gradient(700px 220px at 100% 0%, rgba(109,92,255,.16), transparent 55%);
+      pointer-events:none;
+    }
+    .tag{
+      position:relative;
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px;
+      padding:7px 10px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      color:var(--muted);
+      background: rgba(11,18,32,.35);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(0,212,255,.12);
+    }
+    h1,h2{
+      margin:14px 0 10px;
+      position:relative;
+      line-height:1.05;
+    }
+    h1{ font-size:40px; letter-spacing:-.6px }
+    h2{ font-size:30px; letter-spacing:-.4px }
+    .subtitle{
+      position:relative;
+      font-size:16px;
+      color:var(--muted);
+      margin-bottom:16px;
+      max-width: 44ch;
+    }
+    .accent{
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    ul{
+      position:relative;
+      margin:14px 0 0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+    li{ margin:10px 0; color: rgba(234,241,255,.92) }
+    .note{
+      position:relative;
+      margin-top:16px;
+      padding:12px 14px;
+      border:1px dashed rgba(0,212,255,.35);
+      background: rgba(0,212,255,.06);
+      border-radius:16px;
+      color: rgba(234,241,255,.92);
+    }
+    .footer{
+      position:absolute; left:22px; right:22px; bottom:16px;
+      display:flex; justify-content:space-between; align-items:center;
+      color: rgba(159,176,208,.9);
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:10px;
+    }
+    .badge{
+      border:1px solid rgba(255,255,255,.12);
+      padding:5px 9px; border-radius:999px;
+      background: rgba(11,18,32,.35);
+    }
+
+    /* PRINT: 8 бет A4 */
+    @media print{
+      body{ background:#fff; color:#000 }
+      .topbar{ display:none !important }
+      .wrap{ display:block; max-width: none; margin:0; padding:0 }
+      .page{
+        page-break-after: always;
+        break-after: page;
+        border-radius:0;
+        box-shadow:none;
+        border:none;
+        background:#fff;
+        min-height:auto;
+        padding: 18mm 16mm;
+      }
+      .page:before{ display:none }
+      .tag, .badge{ border:1px solid #ddd; background:#f7f7f7; color:#333 }
+      .subtitle{ color:#444 }
+      .accent{ color:#000; -webkit-text-fill-color:#000 }
+      .footer{ color:#444; border-top:1px solid #ddd }
+      li{ color:#111 }
+      .note{ border:1px dashed #999; background:#f5fbff; color:#111 }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <span class="pill">8-беттік постер</span>
+      <span>🎬 <span class="accent">FRAME ШЕБЕРЛЕРІ</span></span>
+    </div>
+    <button class="btn" onclick="window.print()">🖨 Print / PDF қылып сақтау</button>
+  </div>
+
+  <main class="wrap">
+
+    <!-- 1 -->
+    <section class="page">
+      <div class="tag"><span class="dot"></span> ТАҚЫРЫП</div>
+      <h1><span class="accent">FRAME</span> ШЕБЕРЛЕРІ</h1>
+      <p class="subtitle">Кадр арқылы мағына жасау өнері. Әр кадр — көрерменге әсер ететін визуалды тіл.</p>
+      <div class="note">
+        <b>Идея:</b> Фрейм — жай ғана кадр емес. Ол ой, сезім және ақпаратты дәл жеткізудің құралы.
+      </div>
+      <div class="footer">
+        <span class="badge">01 / 08</span>
+        <span>Poster • Modern</span>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="page">
+      <div class="tag"><span class="dot"></span> НЕГІЗ</div>
+      <h2>Фрейм деген не?</h2>
+      <p class="subtitle">Фрейм (Frame) — видео/суреттегі <span class="accent">бір кадр</span>. Камера көрсететін аймақ.</p>
+      <ul>
+        <li>Камера көріп тұрған кеңістік.</li>
+        <li>Назарды басқарудың ең қысқа жолы.</li>
+        <li>Оқиғаның мағынасын ашатын визуалды блок.</li>
+      </ul>
+      <div class="footer">
+        <span class="badge">02 / 08</span>
+        <span>Definition</span>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="page">
+      <div class="tag"><span class="dot"></span> МАҢЫЗЫ</div>
+      <h2>Фреймнің маңызы</h2>
+      <p class="subtitle">Дұрыс кадр — дұрыс әсер. Фрейм қате болса, идея әлсірейді.</p>
+      <ul>
+        <li><b>Мағына:</b> негізгі ойды нақты көрсетеді.</li>
+        <li><b>Эмоция:</b> сезімді күшейтеді/бәсеңдетеді.</li>
+        <li><b>Назар:</b> көрермен қайда қарауы керек — соны шешеді.</li>
+      </ul>
+      <div class="note"><b>Ереже:</b> Кадрдағы әр элемент «неге осында тұр?» деген сұраққа жауап беруі керек.</div>
+      <div class="footer">
+        <span class="badge">03 / 08</span>
+        <span>Impact</span>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="page">
+      <div class="tag"><span class="dot"></span> ТҮРЛЕРІ</div>
+      <h2>Фрейм түрлері</h2>
+      <p class="subtitle">План — ақпарат көлемін анықтайды. Қайсысы керек екенін мақсат шешеді.</p>
+      <ul>
+        <li><b>Жалпы план</b> (Long Shot) — орта, кеңістік.</li>
+        <li><b>Орта план</b> (Medium Shot) — әрекет, диалог.</li>
+        <li><b>Жақын план</b> (Close-up) — эмоция.</li>
+        <li><b>Деталь</b> (Detail Shot) — маңызды ұсақ белгі.</li>
+      </ul>
+      <div class="footer">
+        <span class="badge">04 / 08</span>
+        <span>Types</span>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="page">
+      <div class="tag"><span class="dot"></span> КОМПОЗИЦИЯ</div>
+      <h2>Фрейм және композиция</h2>
+      <p class="subtitle">Композиция — кадрдағы элементтердің тәртібі. Ол кадрды «кәсіби» қылады.</p>
+      <ul>
+        <li><b>Үштік ережесі</b> (Rule of Thirds) — теңгерім.</li>
+        <li><b>Симметрия</b> — тұрақтылық, стиль.</li>
+        <li><b>Жарық/көлеңке</b> — көңіл-күй.</li>
+        <li><b>Фокус</b> — басты объект.</li>
+      </ul>
+      <div class="footer">
+        <span class="badge">05 / 08</span>
+        <span>Composition</span>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="page">
+      <div class="tag"><span class="dot"></span> ЭМОЦИЯ</div>
+      <h2>Фрейм эмоция тудырады</h2>
+      <p class="subtitle">Камера бұрышы мен план көрермен сезімін өзгертеді.</p>
+      <ul>
+        <li><b>Close-up</b> → қуаныш/қорқыныш/қайғы айқын көрінеді.</li>
+        <li><b>Төменнен түсіру</b> → күш, батырлық әсері.</li>
+        <li><b>Жоғарыдан түсіру</b> → әлсіздік, қысым сезімі.</li>
+      </ul>
+      <div class="note"><b>Трюк:</b> Бір эмоцияны 3 түрлі бұрышпен түсіріп салыстыр — айырмашылығы бірден білінеді.</div>
+      <div class="footer">
+        <span class="badge">06 / 08</span>
+        <span>Emotion</span>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="page">
+      <div class="tag"><span class="dot"></span> ШЕБЕРЛІК</div>
+      <h2>Неге «Фрейм шеберлері»?</h2>
+      <p class="subtitle">Шебер кадр құрастырады, ал жай адам тек түсіреді.</p>
+      <ul>
+        <li>Әр кадрды <b>мақсатпен</b> құрады.</li>
+        <li>Көрермен назарын <b>басқарады</b>.</li>
+        <li>Артықты алып тастап, маңыздыны <b>ерекшелейді</b>.</li>
+        <li>Оқиғаны визуалды тілмен <b>жеткізеді</b>.</li>
+      </ul>
+      <div class="footer">
+        <span class="badge">07 / 08</span>
+        <span>Mastery</span>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="page">
+      <div class="tag"><span class="dot"></span> ҚОРЫТЫНДЫ</div>
+      <h2>Қорытынды</h2>
+      <p class="subtitle">Фрейм — визуалды ойлау. Дұрыс фрейм — күшті әсер.</p>
+      <div class="note">
+        <b>Есіңде болсын:</b><br>
+        • Әр кадр — бір әлем.<br>
+        • Әр фрейм — бір мағына.<br>
+        • Фреймді меңгерген адам — нағыз визуалды шебер!
+      </div>
+      <div class="footer">
+        <span class="badge">08 / 08</span>
+        <span>Final</span>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
